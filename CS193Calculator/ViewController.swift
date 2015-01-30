@@ -9,6 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    
+    @IBOutlet weak var resultOutput: UILabel!
+    
+    @IBAction func buttonPresed(sender: UIButton) {
+    }
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
