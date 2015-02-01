@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Darwin
 
 class ViewController: UIViewController {
 
@@ -17,6 +18,8 @@ class ViewController: UIViewController {
     var operandStack:[Double] = []
     //keeping track of whether we are in middle of a digit or finished
     var inMiddleOfTyping: Bool = false
+    //keeping track if a decimal has been added
+    var decimalAdded = false
     
     var displayValue: Double {
         get {
@@ -32,33 +35,52 @@ class ViewController: UIViewController {
     
     //func for DIGITS
     @IBAction func appendDigit(sender: UIButton) {
-        let digit = sender.currentTitle!
         
+
+        let digit = sender.currentTitle!
+
         //if first digit pressed
         if !inMiddleOfTyping  {
             display.text = digit
             inMiddleOfTyping = true
+            if digit == "." {
+                decimalAdded = true
+            }
             
         }
         //if second digit pressed
         else {
-            //add the digit to the current number
-            display.text = display.text! + digit
+            
+            if digit == "." {
+                if decimalAdded {
+                    println("cannot add another decimal")
+                }
+                else {
+                    decimalAdded = true
+                    display.text = display.text! + digit
+                }
+            }
+            else {
+
+                //add the digit to the current number
+                display.text = display.text! + digit
+            }
             
         }
     }
     
     
-//
-//    @IBAction func enter(sender: UIButton) {
-//        
-//      
-//        
-//    }
+    //adding PI
+    @IBAction func addPI() {
+        let digit = M_PI
+        displayValue =  digit
+    }
+    
     
     //func for ENTER
     @IBAction func enter() {
         inMiddleOfTyping = false
+        decimalAdded = false
         
         //add the display to the operandStack
         operandStack.append(displayValue)
@@ -85,6 +107,10 @@ class ViewController: UIViewController {
                 performOperation({$1 * $0})
             case "÷":
                 performOperation({$1 / $0})
+            case "SIN":
+                performTrig({ sin($0) })
+            case "COS":
+                performTrig({ cos($0) })
             
             default:
                 break
@@ -98,7 +124,17 @@ class ViewController: UIViewController {
                 //add the result to the stack
                 enter()
             }
+
     }
+    
+    func performTrig(operation: (Double)-> Double) {
+        if operandStack.count >= 1 {
+            displayValue = operation(operandStack.removeLast())
+            enter()
+        }
+    }
+    
+    
     
 
 }
