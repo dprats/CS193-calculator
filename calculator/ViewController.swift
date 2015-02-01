@@ -78,9 +78,9 @@ class ViewController: UIViewController {
         // 5 = performOperation("add")
         switch operation{
             case "+": performOperation(add)
-//            case "−": performOperation("subtract")
-//            case "×": performOperation("multiply")
-//            case "÷": performOperation("divide")
+            case "−": performOperation(add)
+            case "×": performOperation(add)
+            case "÷": performOperation(add)
             
             default:
                 break
@@ -100,7 +100,11 @@ class ViewController: UIViewController {
         return op1 + op2
     }
     
+    func subtract(op1: Double, op2: Double) -> Double {
+        return op1 + op2
+    }
+    
 }
 
-//TEST3
+
 
