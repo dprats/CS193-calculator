@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 
     //Display Value
     @IBOutlet weak var display: UILabel!
+    @IBOutlet weak var operandStackLabel: UILabel!
     
     //operand stack
     var operandStack:[Double] = []
@@ -85,6 +86,7 @@ class ViewController: UIViewController {
         //add the display to the operandStack
         operandStack.append(displayValue)
         println("operandStack = \(operandStack)")
+        operandStackLabel.text = "\(operandStack)"
     }
     
     
@@ -127,6 +129,8 @@ class ViewController: UIViewController {
 
     }
     
+    //function used by the Trig buttons to perform operations 
+    //based on which trug function was selected
     func performTrig(operation: (Double)-> Double) {
         if operandStack.count >= 1 {
             displayValue = operation(operandStack.removeLast())
@@ -134,7 +138,14 @@ class ViewController: UIViewController {
         }
     }
     
-    
+    //function to clear the history stack label, and previous history
+    @IBAction func clear() {
+        
+        display.text = "0"
+        operandStack = []
+        println("everything cleared")
+        operandStackLabel.text = ""
+    }
     
 
 }

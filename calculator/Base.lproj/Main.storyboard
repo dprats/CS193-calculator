@@ -257,9 +257,31 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="29" y="86" width="261" height="40"/>
+                                    <rect key="frame" x="34" y="35" width="261" height="40"/>
                                 </variation>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mrb-OK-5Pl">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="40" y="105" width="266" height="33"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJi-ah-yhS">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="C">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="329" y="533" width="30" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="clear" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dgb-7H-eqR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -275,6 +297,8 @@
                                 <exclude reference="nKx-7i-4zA"/>
                                 <exclude reference="rBA-ty-3lL"/>
                                 <exclude reference="HKt-5u-5Er"/>
+                                <exclude reference="mrb-OK-5Pl"/>
+                                <exclude reference="PJi-ah-yhS"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -290,11 +314,14 @@
                                 <include reference="nKx-7i-4zA"/>
                                 <include reference="rBA-ty-3lL"/>
                                 <include reference="HKt-5u-5Er"/>
+                                <include reference="mrb-OK-5Pl"/>
+                                <include reference="PJi-ah-yhS"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="display" destination="HKt-5u-5Er" id="44r-EF-edC"/>
+                        <outlet property="operandStackLabel" destination="mrb-OK-5Pl" id="liF-eb-0uf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
