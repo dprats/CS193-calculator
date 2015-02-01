@@ -11,22 +11,12 @@ import UIKit
 class ViewController: UIViewController {
     
     
-    @IBOutlet weak var resultOutput: UILabel!
     
-    @IBAction func buttonPresed(sender: UIButton) {
-    }
+    //function to change the label when a button is pressed
     
-    
-    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func appendDigit(sender: UIButton) {
+        let digit = sender.currentTitle
+        println("digit = \(digit)")
     }
 
 
