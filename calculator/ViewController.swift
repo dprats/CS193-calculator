@@ -77,10 +77,14 @@ class ViewController: UIViewController {
         //perform the last operation pressed on the last two digits
         // 5 = performOperation("add")
         switch operation{
-            case "+": performOperation(add)
-            case "−": performOperation(add)
-            case "×": performOperation(add)
-            case "÷": performOperation(add)
+            case "+":
+                performOperation({$1 + $0})
+            case "−":
+                performOperation({$1 - $0})
+            case "×":
+                performOperation({$1 * $0})
+            case "÷":
+                performOperation({$1 / $0})
             
             default:
                 break
@@ -96,14 +100,7 @@ class ViewController: UIViewController {
             }
     }
     
-    func add(op1: Double, op2: Double) -> Double {
-        return op1 + op2
-    }
-    
-    func subtract(op1: Double, op2: Double) -> Double {
-        return op1 + op2
-    }
-    
+
 }
 
 
